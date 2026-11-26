@@ -1,0 +1,11 @@
+{
+  "source": "fixture",
+  "source_reference": "fixture-live-001",
+  "title": "Mission d'AMO pour la programmation événementielle d'un lieu culturel",
+  "buyer": "Ville de Démonstration",
+  "description": "La mission comprend une étude de faisabilité événementielle, un business plan événementiel, la commercialisation d'espaces et une stratégie de valorisation de lieu vivant. Le titulaire proposera une approche de programmation artistique et des synergies marketing, F&B et property management.",
+  "location": "Paris",
+  "cpv": ["79400000", "79952000"],
+  "deadline": "2099-12-31T12:00:00+00:00"
+}
+

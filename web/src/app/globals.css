@@ -1,0 +1,339 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 97%;
+  --foreground: 217 32% 14%;
+  --muted: 140 23% 95%;
+  --accent: 314 46% 41%;
+  --primary: 144 100% 27%;
+  --primary-light: 150 42% 61%;
+  --primary-extra-light: 140 23% 95%;
+  --danger: 0 100% 38%;
+  --danger-light: 0 63% 97%;
+  --border: 0 0% 89%;
+  --brand-marine: 207 89% 28%;
+  --brand-blue: 187 94% 28%;
+  --brand-gold: 51 72% 64%;
+  --brand-fuchsia: 314 46% 41%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(180deg, hsl(var(--primary-extra-light)) 0, hsl(var(--background)) 240px),
+    hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid hsl(var(--border));
+  border-radius: 6px;
+  background: white;
+  color: hsl(var(--foreground));
+  padding: 0.5rem 0.65rem;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+select option,
+select optgroup {
+  background: white;
+  color: hsl(var(--foreground));
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.14);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid hsl(var(--border));
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: hsl(var(--muted));
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: hsl(var(--brand-marine));
+}
+
+.workspace-panel {
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+  background: white;
+  color: hsl(var(--foreground));
+  box-shadow: 0 1px 3px rgb(15 23 42 / 0.06);
+}
+
+.mode-simple-only {
+  display: none;
+}
+
+.mode-advanced-only {
+  display: block;
+}
+
+.interface-mode-switch button {
+  min-width: 5.5rem;
+  height: 1.85rem;
+  border-radius: 4px;
+  padding: 0 0.65rem;
+  color: rgb(255 255 255 / 0.68);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.interface-mode-switch button.is-active {
+  background: white;
+  color: hsl(var(--brand-marine));
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.16);
+}
+
+.front-panel {
+  border-color: rgb(255 255 255 / 0.2);
+  background: rgb(255 255 255 / 0.2);
+  color: white;
+  box-shadow: 0 18px 48px rgb(0 0 0 / 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.front-panel table th {
+  border-color: rgb(255 255 255 / 0.14);
+  background: rgb(255 255 255 / 0.16);
+  color: rgb(255 255 255 / 0.88);
+}
+
+.front-panel table td {
+  border-color: rgb(255 255 255 / 0.14);
+  color: rgb(255 255 255 / 0.9);
+}
+
+.front-panel tbody tr {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.front-panel tbody tr:hover {
+  background: rgb(255 255 255 / 0.08);
+}
+
+.front-panel a[href] {
+  text-underline-offset: 3px;
+}
+
+.front-panel input,
+.front-panel select,
+.front-panel textarea {
+  border-color: rgb(255 255 255 / 0.22);
+  background: rgb(255 255 255 / 0.12);
+  color: white;
+}
+
+.front-panel input::placeholder,
+.front-panel textarea::placeholder {
+  color: rgb(255 255 255 / 0.55);
+}
+
+.front-panel select option,
+.front-panel select optgroup {
+  background: white;
+  color: hsl(var(--foreground));
+}
+
+.front-panel .text-foreground\/60,
+.front-panel .text-foreground\/70,
+.front-panel .text-foreground\/75 {
+  color: rgb(255 255 255 / 0.68);
+}
+
+.front-panel .border-border {
+  border-color: rgb(255 255 255 / 0.14);
+}
+
+.front-panel .divide-border > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgb(255 255 255 / 0.14);
+}
+
+.front-panel .prose,
+.front-panel .prose * {
+  color: rgb(255 255 255 / 0.88);
+}
+
+.front-panel .prose h1,
+.front-panel .prose h2,
+.front-panel .prose h3,
+.front-panel .live-report h1,
+.front-panel .live-report h2,
+.front-panel .live-report h3 {
+  margin: 0 0 0.75rem;
+  color: white;
+  letter-spacing: 0;
+}
+
+.front-panel .prose h1,
+.front-panel .live-report h1 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.front-panel .prose h2,
+.front-panel .live-report h2 {
+  border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  padding-bottom: 0.45rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.front-panel .prose section,
+.front-panel .live-report section {
+  margin-bottom: 1.5rem;
+}
+
+.front-panel .prose ul,
+.front-panel .live-report ul {
+  margin: 0.75rem 0;
+  padding-left: 1.1rem;
+}
+
+.front-panel .prose li,
+.front-panel .live-report li {
+  margin: 0.35rem 0;
+}
+
+.front-panel .prose blockquote,
+.front-panel .live-report blockquote {
+  margin: 0.7rem 0;
+  border-left: 4px solid hsl(var(--brand-gold)) !important;
+  background: rgb(255 255 255 / 0.12) !important;
+  padding: 0.75rem 0.85rem;
+  color: rgb(255 255 255 / 0.78) !important;
+}
+
+[data-interface-mode="simple"] .mode-simple-only {
+  display: block;
+}
+
+[data-interface-mode="simple"] .mode-advanced-only {
+  display: none;
+}
+
+[data-interface-mode="simple"] .workspace-panel {
+  border-color: rgb(255 255 255 / 0.2);
+  background: rgb(255 255 255 / 0.2);
+  color: white;
+  box-shadow: 0 18px 48px rgb(0 0 0 / 0.18);
+  backdrop-filter: blur(18px);
+}
+
+[data-interface-mode="simple"] .workspace-panel table th {
+  border-color: rgb(255 255 255 / 0.14);
+  background: rgb(255 255 255 / 0.16);
+  color: rgb(255 255 255 / 0.88);
+}
+
+[data-interface-mode="simple"] .workspace-panel table td {
+  border-color: rgb(255 255 255 / 0.14);
+  color: rgb(255 255 255 / 0.9);
+}
+
+[data-interface-mode="simple"] .workspace-panel input,
+[data-interface-mode="simple"] .workspace-panel select,
+[data-interface-mode="simple"] .workspace-panel textarea {
+  border-color: rgb(255 255 255 / 0.22);
+  background: rgb(255 255 255 / 0.12);
+  color: white;
+}
+
+[data-interface-mode="simple"] .workspace-panel select option,
+[data-interface-mode="simple"] .workspace-panel select optgroup {
+  background: white;
+  color: hsl(var(--foreground));
+}
+
+[data-interface-mode="simple"] .workspace-panel .border-border,
+[data-interface-mode="simple"] .mode-simple-only .border-border {
+  border-color: rgb(255 255 255 / 0.14);
+}
+
+[data-interface-mode="simple"] .workspace-panel .divide-border > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgb(255 255 255 / 0.14);
+}
+
+[data-interface-mode="simple"] .workspace-panel .bg-muted\/35,
+[data-interface-mode="simple"] .workspace-panel .bg-muted\/45,
+[data-interface-mode="simple"] .workspace-panel .bg-muted\/55 {
+  background: rgb(255 255 255 / 0.1);
+}
+
+[data-interface-mode="simple"] .mode-simple-only .text-foreground,
+[data-interface-mode="simple"] .mode-simple-only .text-brand-marine {
+  color: white;
+}
+
+[data-interface-mode="simple"] .mode-simple-only .text-foreground\/30,
+[data-interface-mode="simple"] .mode-simple-only .text-foreground\/35,
+[data-interface-mode="simple"] .mode-simple-only .text-foreground\/45,
+[data-interface-mode="simple"] .mode-simple-only .text-foreground\/50 {
+  color: rgb(255 255 255 / 0.5);
+}
+
+[data-interface-mode="simple"] .mode-simple-only .text-foreground\/55,
+[data-interface-mode="simple"] .mode-simple-only .text-foreground\/60,
+[data-interface-mode="simple"] .mode-simple-only .text-foreground\/65,
+[data-interface-mode="simple"] .mode-simple-only .text-foreground\/70,
+[data-interface-mode="simple"] .mode-simple-only .text-foreground\/75 {
+  color: rgb(255 255 255 / 0.7);
+}
+
+[data-interface-mode="simple"] .mode-simple-only .text-primary {
+  color: hsl(var(--brand-gold));
+}
+
+[data-interface-mode="simple"] .mode-simple-only .border-white.bg-white.text-brand-marine {
+  color: hsl(var(--brand-marine));
+}
+
+[data-interface-mode="simple"] .workspace-panel tbody tr:hover {
+  background: rgb(255 255 255 / 0.08);
+}
+
+@media (max-width: 639px) {
+  .interface-mode-switch button {
+    min-width: auto;
+    padding-inline: 0.5rem;
+  }
+
+  .topbar-profile > div:last-child {
+    display: none;
+  }
+
+  .topbar-profile {
+    padding-right: 0.25rem;
+  }
+}
